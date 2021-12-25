@@ -5,19 +5,21 @@ class tictactoe {
   ticBoard boardToPlayOn = new ticBoard();
   AITic computer = new AITic();
 
+  String playerPiece;
+
   public void gameStart() {
     Scanner input = new Scanner(System.in);
 
     System.out.println("Choose the row: ");
-    String row = input.nextLine();
+    int row = input.nextInt();
     System.out.println("\nChoose the column: ");
-    String column = input.nextLine();
+    int column = input.nextInt();
+
+    boardToPlayOn.setterFunc(row, column, this.playerPiece);
   }
 
-  public void pieceSelection(String chosenPlayerPiece) {
-    String playerPiece = chosenPlayerPiece;
-
-    if (chosenPlayerPiece.equals("X")) {
+  public void pieceSelection() {
+    if ((this.playerPiece).equals("X")) {
       computer.piece = "O";
     } else {
       computer.piece = "X";
@@ -26,7 +28,7 @@ class tictactoe {
     gameStart();
   }
 
-  public String boardOutput() {
+  public void boardOutput() {
     Scanner input = new Scanner(System.in);
 
     for (String[] row : boardToPlayOn.ticTacToeBoard) {
@@ -34,9 +36,7 @@ class tictactoe {
     }
 
     System.out.println("What do you want to play as (X/O)? ");
-    String playerPiece = input.nextLine();
-
-    return playerPiece;
+    this.playerPiece = input.nextLine();
   }
 
   public void startGame() {
