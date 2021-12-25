@@ -8,7 +8,7 @@ class ticBoard {
 
   public void setterFunc(int row, int column, String playerPiece) {
     if ((ticTacToeBoard[row][column]).equals("|_|")) {
-      ticTacToeBoard[row][column] = playerPiece;
+      ticTacToeBoard[row][column] = "|" + playerPiece + "|";
     } else {
       System.out.println("Invalid move");
     }

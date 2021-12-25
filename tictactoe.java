@@ -6,6 +6,7 @@ class tictactoe {
   AITic computer = new AITic();
 
   String playerPiece;
+  String computerPiece;
 
   public void boardOutput() {
     Scanner input = new Scanner(System.in);
@@ -27,6 +28,7 @@ class tictactoe {
       int column = input.nextInt();
 
       boardToPlayOn.setterFunc(row, column, this.playerPiece);
+      computer.checker(this.boardToPlayOn.ticTacToeBoard);
     }
   }
 
