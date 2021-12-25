@@ -5,6 +5,15 @@ class tictactoe {
   ticBoard boardToPlayOn = new ticBoard();
   AITic computer = new AITic();
 
+  public void gameStart() {
+    Scanner input = new Scanner(System.in);
+
+    System.out.println("Choose the row: ");
+    String row = input.nextLine();
+    System.out.println("\nChoose the column: ");
+    String column = input.nextLine();
+  }
+
   public void pieceSelection(String chosenPlayerPiece) {
     String playerPiece = chosenPlayerPiece;
 
@@ -13,6 +22,8 @@ class tictactoe {
     } else {
       computer.piece = "X";
     }
+
+    gameStart();
   }
 
   public String boardOutput() {
