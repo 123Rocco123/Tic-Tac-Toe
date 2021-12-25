@@ -7,36 +7,37 @@ class tictactoe {
 
   String playerPiece;
 
-  public void gameStart() {
-    Scanner input = new Scanner(System.in);
-
-    System.out.println("Choose the row: ");
-    int row = input.nextInt();
-    System.out.println("\nChoose the column: ");
-    int column = input.nextInt();
-
-    boardToPlayOn.setterFunc(row, column, this.playerPiece);
-  }
-
-  public void pieceSelection() {
-    if ((this.playerPiece).equals("X")) {
-      computer.piece = "O";
-    } else {
-      computer.piece = "X";
-    }
-
-    gameStart();
-  }
-
   public void boardOutput() {
     Scanner input = new Scanner(System.in);
 
     for (String[] row : boardToPlayOn.ticTacToeBoard) {
       System.out.println(Arrays.toString(row));
     }
+  }
 
-    System.out.println("What do you want to play as (X/O)? ");
-    this.playerPiece = input.nextLine();
+  public void gameStart() {
+    while (boardToPlayOn.win == false) {
+      Scanner input = new Scanner(System.in);
+
+      boardOutput();
+
+      System.out.println("Choose the row: ");
+      int row = input.nextInt();
+      System.out.println("\nChoose the column: ");
+      int column = input.nextInt();
+
+      boardToPlayOn.setterFunc(row, column, this.playerPiece);
+    }
+  }
+
+  public void pieceSelection() {
+    if ((this.playerPiece).equals("X")) {
+      computer.piece = "O";
+      gameStart();
+    } else {
+      computer.piece = "X";
+      gameStart();
+    }
   }
 
   public void startGame() {
@@ -46,7 +47,10 @@ class tictactoe {
     String startGame = input.nextLine();
 
     if (startGame.equals("Start")) {
-      boardOutput();
+      System.out.println("What do you want to play as (X/O)? ");
+      this.playerPiece = input.nextLine();
+
+      pieceSelection();
     } else {
       System.out.println("Invalid input.");
       startGame();
