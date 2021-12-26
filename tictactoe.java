@@ -28,7 +28,7 @@ class tictactoe {
       int column = input.nextInt();
 
       boardToPlayOn.setterFunc(row, column, this.playerPiece);
-      computer.checker(this.boardToPlayOn.ticTacToeBoard);
+      computer.checker(this.boardToPlayOn.ticTacToeBoard, this.playerPiece);
     }
   }
 
