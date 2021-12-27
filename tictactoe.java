@@ -17,7 +17,7 @@ class tictactoe {
   }
 
   public void gameStart() {
-    while (boardToPlayOn.win == false) {
+    while (computer.winner == false) {
       Scanner input = new Scanner(System.in);
 
       boardOutput();

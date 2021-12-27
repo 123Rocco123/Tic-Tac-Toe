@@ -2,6 +2,10 @@
 class AITic {
   String piece;
 
+  int availableSpaces = 0;
+
+  boolean winner = false;
+
   public String checker(String[][] board, String playerPiece) {
     if (board[2][2].equals("|_|")) {
       board[2][2] = "|" + piece + "|";
@@ -70,7 +74,22 @@ class AITic {
           }
         }
       }
-      System.out.println("test");
+      for (int y = 1; y < 4; y++) {
+        for (int z = 1; z < 4; z++) {
+          if (board[y][z].equals("|_|")) {
+            board[y][z] = "|" + piece + "|";
+            return "";
+          } else {
+            this.availableSpaces += 1;
+
+            if (this.availableSpaces == 9) {
+              System.out.println("\nTie Game!");
+              this.winner = true;
+              return "";
+            }
+          }
+        }
+      }
       return "";
     }
   }
