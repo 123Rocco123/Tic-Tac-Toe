@@ -30,6 +30,10 @@ class tictactoe {
       boardToPlayOn.setterFunc(row, column, this.playerPiece);
       computer.checker(this.boardToPlayOn.ticTacToeBoard, this.playerPiece);
     }
+
+    if (computer.winner = true) {
+      boardOutput();
+    }
   }
 
   public void pieceSelection() {
@@ -45,17 +49,14 @@ class tictactoe {
   public void startGame() {
     Scanner input = new Scanner(System.in);
 
-    System.out.println("Write \"Start\" to start the game.");
-    String startGame = input.nextLine();
+    System.out.println("What do you want to play as (X/O)? ");
+    this.playerPiece = input.nextLine();
 
-    if (startGame.equals("Start")) {
-      System.out.println("What do you want to play as (X/O)? ");
-      this.playerPiece = input.nextLine();
-
-      pieceSelection();
-    } else {
+    if (!this.playerPiece.equals("X") && !this.playerPiece.equals("O")) {
       System.out.println("Invalid input.");
       startGame();
+    } else {
+      pieceSelection();
     }
   }
 
