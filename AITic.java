@@ -22,6 +22,18 @@ class AITic {
       board[2][1] = "|" + piece + "|";
       this.middleLeft = false;
       return "";
+    } else if (board[1][1].equals("|" + playerPiece + "|") && board[1][3].equals("|" + playerPiece + "|") && middleTop == true) {
+      board[1][2] = "|" + piece + "|";
+      this.middleTop = false;
+      return "";
+    } else if (board[1][3].equals("|" + playerPiece + "|") && board[3][3].equals("|" + playerPiece + "|") && middleRight == true) {
+      board[2][3] = "|" + piece + "|";
+      this.middleRight = false;
+      return "";
+    } else if (board[3][1].equals("|" + playerPiece + "|") && board[3][3].equals("|" + playerPiece + "|") && middleBottom == true) {
+      board[3][2] = "|" + piece + "|";
+      this.middleBottom = false;
+      return "";
     } // The else if statement below is used in case the middle spot is taken.
     else if (!(board[2][2].equals("|_|"))) {
       for (int i = 1; i < 4; i += 2) {
